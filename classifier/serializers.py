@@ -1,7 +1,7 @@
 # serializers.py
 from rest_framework import serializers
 from .models import Prediction
-
+from django.contrib.auth.models import User
 class PredictionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prediction
@@ -18,3 +18,9 @@ class PredictionSerializer(serializers.ModelSerializer):
                     'model_width', 
                     'model_height' 
                     ]
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'password'] 
